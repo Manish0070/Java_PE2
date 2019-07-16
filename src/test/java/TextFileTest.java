@@ -8,17 +8,23 @@ public class TextFileTest {
 
     @Before
     public void setUp() throws Exception {
+        TextFile textFile = new TextFile();
     }
 
     @After
     public void tearDown() throws Exception {
+        textFile = null;
     }
 
     @Test
     public void givenATextFileInputShouldReturnUpperString(){
 
-        TextFile textFile = new TextFile();
+       String filePath ="/home/cgi/test.txt";
+       int lengthOfFile =10 ;
+       String fileContent = "abcdefghij";
 
-        String actualvalue = textFile.textFileFunction()
+        String actualvalue = textFile.textFileFunction(filePath,lengthOfFile,fileContent);
+
+        assertEquals("ABCDEFGHIJ",actualvalue);
     }
 }
